@@ -330,7 +330,7 @@ class HomepilotIO extends IPSModule
 	
 	protected function GetPostFields($deviceID, $command, $position)
 	{
-		if($command = 9)
+		if($command == 9)
 		{
 			$commandhomepilot = "cid=".$command."&did=".$deviceID."&goto=".$position."&command=1";
 		}
