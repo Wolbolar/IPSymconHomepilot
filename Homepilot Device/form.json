@@ -1,0 +1,49 @@
+{
+    "elements":
+            [
+				{ "type": "Label", "label": "Please configure instance Homepilot und press the Setup Homepilot button"},
+				{
+                    "name": "Name",
+                    "type": "ValidationTextBox",
+                    "caption": "Name"
+                },
+				{
+                    "name": "DeviceID",
+                    "type": "NumberSpinner",
+                    "caption": "DeviceID"
+                },
+				{
+                    "name": "ProductName",
+                    "type": "ValidationTextBox",
+                    "caption": "Product Name"
+                },
+				{
+                    "name": "Version",
+                    "type": "ValidationTextBox",
+                    "caption": "Version"
+                },
+				{
+                    "name": "UID",
+                    "type": "ValidationTextBox",
+                    "caption": "UID"
+                }
+            ],
+    "status":
+            [
+                {
+                    "code": 101,
+                    "icon": "inactive",
+                    "caption": "creating instance"
+                },
+				{
+                    "code": 102,
+                    "icon": "active",
+                    "caption": "configuration valid"
+                },
+                {
+                    "code": 104,
+                    "icon": "inactive",
+                    "caption": "Homepilot Device is inactive"
+                }
+            ]
+}

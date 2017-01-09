@@ -1,0 +1,28 @@
+{
+	"translations": {
+		"de": { 
+			"Connection from Homepilot to IP-Symcon":"Verbindung von Homepilot to IP-Symcon",
+			"Open": "Aktiv",
+			"IP adress": "IP Adresse",
+			"authentication for Homepilot":"Authentifizierung für Homepilot",
+			"username":"Benutzername",
+			"password":"Passwort",
+			"category for Homepilot devices": "Kategorie zum Anlegen der Homepilot Geräte:",
+			"Homepilot devices": "Homepilot Geräte",
+			"1. Read Homepilot configuration:": "1. Homepilot Konfiguration auslesen:",
+			"Read configuration": "Konfiguration auslesen",
+			"2. Create devices after reading the Homepilot configuration:": "2. Wenn Homepilot Konfiguration ausgelesen wurde Geräte anlegen:",
+			"Get current position of the shutter:": "Aktuelle Positionen der Rollläden vom Homepilot auslesen:",
+			"Get current position": "Position auslesen",
+			"Setup Homepilot": "Setup Homepilot",
+			"Creating instance.": "Die Instanz wird erstellt.",
+			"Interface closed.": "Interface geschlossen.",
+			"Homepilot I/O created.": "Homepilot I/O erstellt.",
+			"Homepilot IP adress must not empty.": "Homepilot IP Adresse darf nicht leer sein.",
+			"No valid IP adress.": "Keine gültige IP Adresse.",
+			"connection to the Homepilot lost.": "Verbindung zum Homepilot verloren.",
+			"field must not be empty.": "Felder dürfen nicht leer sein.",
+			"select category for import.": "Kategorie zum Import auswählen."			
+		}
+	}
+}

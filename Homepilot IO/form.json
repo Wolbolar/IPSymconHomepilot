@@ -1,0 +1,80 @@
+{
+    "elements":
+	[
+		{ "type": "Label", "label": "Connection from Homepilot to IP-Symcon" },
+		{
+                    "name": "Open",
+                    "type": "CheckBox",
+                    "caption": "Open"
+                },
+				{ "type": "Label", "label": "IP adress Homepilot" },
+                {
+                    "name": "Host",
+                    "type": "ValidationTextBox",
+                    "caption": "IP adress"
+                },
+		{ "type": "Label", "label": "authentication for Homepilot" },
+		{ "name": "username", "type": "ValidationTextBox", "caption": "username" },
+		{ "type": "PasswordTextBox", "name": "password", "caption": "password" },
+		{ "type": "Label", "label": "category for Homepilot devices" },
+		{ "type": "SelectCategory", "name": "ImportCategoryID", "caption": "Homepilot devices" },
+		{
+                    "name": "Test",
+                    "type": "CheckBox",
+                    "caption": "local testing"
+                }
+	],
+	"actions":
+			[
+				{ "type": "Label", "label": "1. Read Homepilot configuration:" },
+				{ "type": "Button", "label": "Read configuration", "onClick": "HomepilotIO_getConfig($id);" },
+				{ "type": "Label", "label": "2. Create devices after reading the Homepilot configuration:" },
+				{ "type": "Button", "label": "Setup Homepilot", "onClick": "HomepilotIO_SetupDevices($id);" },
+				{ "type": "Label", "label": "_______________________________________________________________________" },
+				{ "type": "Label", "label": "Get current position of the shutter:" },
+				{ "type": "Button", "label": "Get current position", "onClick": "HomepilotIO_GetState($id);" }
+			],
+	"status":
+            [
+                {
+                    "code": 101,
+                    "icon": "inactive",
+                    "caption": "Creating instance."
+                },
+				{
+                    "code": 102,
+                    "icon": "active",
+                    "caption": "Homepilot I/O created."
+                },
+                {
+                    "code": 104,
+                    "icon": "inactive",
+                    "caption": "Interface closed."
+                },
+				{
+                    "code": 202,
+                    "icon": "error",
+                    "caption": "Homepilot IP adress must not empty."
+                },
+				{
+                    "code": 203,
+                    "icon": "error",
+                    "caption": "No valid IP adress."
+                },
+                {
+                    "code": 204,
+                    "icon": "error",
+                    "caption": "connection to the Homepilot lost."
+                },
+				{
+                    "code": 205,
+                    "icon": "error",
+                    "caption": "field must not be empty."
+                },
+				{
+                    "code": 206,
+                    "icon": "error",
+                    "caption": "select category for import."
+                }
+            ]
+}

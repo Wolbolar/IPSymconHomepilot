@@ -1,0 +1,10 @@
+{
+	"translations": {
+		"de": { 
+			"Creating instance.": "Die Instanz wird erstellt.",
+			"No active Homepilot I/O.":"Kein aktiver Homepilot I/O",
+			"Interface closed.": "Interface geschlossen.",
+			"Homepilot Splitter created.": "Homepilot Splitter erstellt."			
+		}
+	}
+}

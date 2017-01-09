@@ -1,0 +1,13 @@
+{
+    "id": "{D40B39AA-3966-41F1-A7E1-ABFF538DE0CE}",
+	"title": "Homepilot I/O",
+	"description": "Homepilot I/O Instanz zur Kommunikation mit Rademacher Homepilot",
+    "name": "HomepilotIO",
+    "type": 1,
+    "vendor": "Rademacher",
+    "aliases": ["Homepilot I/O"],
+    "parentRequirements": [],
+    "childRequirements": ["{659EA94E-E5FB-40E8-A274-4675CA398B27}"],
+    "implemented": ["{CCB43094-7AAE-431E-BF7B-662A294CC473}"],
+    "prefix": "HomepilotIO"
+}

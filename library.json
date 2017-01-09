@@ -1,0 +1,12 @@
+{
+	"id": "{DEE1D9F4-3F43-4332-AA28-7AB56C6559E4}",
+	"description": "Homepilot Modul",
+	"tags": "Homepilot",
+	"req_ips_version": "4.1",
+	"author": "Fonzo",
+	"name": "Homepilot",
+	"url": "www.rademacher.de",
+	"version": "0.1",
+	"build": 0,
+	"date": 0
+}

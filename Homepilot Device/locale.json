@@ -1,0 +1,15 @@
+{
+	"translations": {
+		"de": { 
+			"Please configure instance Homepilot und press the Setup Homepilot button":"Bitte Instanz Homepilot konfigurieren und dort Setup Homepilot drücken",
+			"DeviceID": "Geräte ID",
+			"Name": "Gerätename",
+			"Product Name": "Produktname",
+			"Version": "Version",
+			"UID": "UID",
+			"configuration valid": "Konfiguration gültig",
+			"Homepilot Device is inactive": "Homepilot Device ist inaktiv",
+			"creating instance": "Die Instanz wird erstellt"
+		}
+	}
+}

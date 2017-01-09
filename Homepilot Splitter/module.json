@@ -1,0 +1,13 @@
+{
+    "id": "{F33A1FA8-85D6-4E2D-BBFF-EA73221221E8}",
+	"title": "Homepilot Splitter",
+	"description": "Homepilot Splitter Instanz",
+    "name": "HomepilotSplitter",
+    "type": 2,
+    "vendor": "Rademacher",
+    "aliases": ["Homepilot Splitter"],
+    "parentRequirements": ["{CCB43094-7AAE-431E-BF7B-662A294CC473}"],
+    "childRequirements": ["{69C786B6-AA98-4093-BDF0-5113BF774A89}"],
+    "implemented": ["{659EA94E-E5FB-40E8-A274-4675CA398B27}", "{D22DE634-29D5-460C-80B6-EEEB48545B2B}"],
+    "prefix": "HomepilotS"
+}

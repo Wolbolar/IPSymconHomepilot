@@ -1,0 +1,25 @@
+{
+    "status":
+            [
+                {
+                    "code": 101,
+                    "icon": "inactive",
+                    "caption": "Creating instance."
+                },
+				{
+                    "code": 203,
+                    "icon": "error",
+                    "caption": "No active Homepilot I/O."
+                },
+				{
+                    "code": 102,
+                    "icon": "active",
+                    "caption": "Homepilot Splitter created."
+                },
+                {
+                    "code": 104,
+                    "icon": "inactive",
+                    "caption": "Interface closed."
+                }
+            ]
+}
