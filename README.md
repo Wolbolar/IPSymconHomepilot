@@ -31,7 +31,7 @@ Das Modul liest die Konfiguration des Homepilot aus und erstellt automatisch in 
 
  Wir wechseln zu IP-Symcon (min Ver. 4.0) und fügen unter Kerninstanzen über __*Modules*__ -> Hinzufügen das Modul hinzu mit der URL
 ```
-git://github.com/....
+https://github.com/Wolbolar/IPSymconHomepilot
 ```	
 
 ### b. Einrichtung in IPS
