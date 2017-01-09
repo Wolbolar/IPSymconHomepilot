@@ -40,8 +40,8 @@ In IP-Symcon unter Splitter Instanzen wechseln. Hier eine neue Instanz mit _Rech
 Es wird ein Splitter und der  Homepilot I/O angelegt. Jetzt erstellen wir im Objektbaum von IP-Symcon eine Kategorie unter der später die Homepilot Geräte angelegt werden sollen.
 Nun unter _I/O Instanzen_ zum _**HomepilotIO**_ wechseln und mit Doppelklick öffnen. Unter _IP-Adresse_ ergänzen wir die IP Adresse des Homepilot und wählen im Formular auch die Kategorie aus die wir zuvor für
 die Homepilot Geräte angelegt haben. Mit _Übernehmen_ bestätigen. Nun im unteren Teil des Formulars zunächst auf _Konfiguartion auslesen_ drücken. Wenn die Daten richtig ausgelesen wurden sollte nun die Variabale
-_Homepilot Config_ unterhalb **HomepilotIO**_ mit Inhalt gefüllt worden sein. Im Anschluss daran auf _Setup Homepilot_ drücken, es werden nun die Geräte in IP-Symcon angelegt. An den Geräte Instanzen ist nichts zusätzlich zu konfigurieren,
-diese solten nach dem Anlegen über den Webfront bedienbar sein.
+_Homepilot Config_ unterhalb _**HomepilotIO**_ mit Inhalt gefüllt worden sein. Im Anschluss daran auf _Setup Homepilot_ drücken, es werden nun die Geräte in IP-Symcon angelegt. An den Geräte Instanzen ist nichts zusätzlich zu konfigurieren,
+diese sollten nach dem Anlegen über den Webfront bedienbar sein.
 
 ## 4. Funktionsreferenz
 
