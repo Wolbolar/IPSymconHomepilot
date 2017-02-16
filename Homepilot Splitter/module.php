@@ -11,7 +11,7 @@ class HomepilotSplitter extends IPSModule
 		//These lines are parsed on Symcon Startup or Instance creation
         //You cannot use variables here. Just static values.
 		$this->RequireParent("{D40B39AA-3966-41F1-A7E1-ABFF538DE0CE}", "Homepilot I/O"); //Homepilot I/O
-		$this->RegisterPropertyBoolean("Debug", true);
+		
 
     }
 
@@ -20,15 +20,7 @@ class HomepilotSplitter extends IPSModule
 	//Never delete this line!
         parent::ApplyChanges();
         $change = false;
-		$debug = $this->ReadPropertyBoolean('Debug');
-		if($debug)
-		{
-			$this->RegisterVariableString("BufferIN", "BufferIN", "", 1);
-			$this->RegisterVariableString("CommandOut", "CommandOut", "", 2);
-			IPS_SetHidden($this->GetIDForIdent('CommandOut'), true);
-			IPS_SetHidden($this->GetIDForIdent('BufferIN'), true);
-		}
-		
+						
 		
 		$ParentID = $this->GetParent();
 		
@@ -121,13 +113,8 @@ class HomepilotSplitter extends IPSModule
 		// Empfangene Daten vom Homepilot I/O
 		$data = json_decode($JSONString);
 		$dataio = json_encode($data->Buffer);
-		if($debug)
-		{
-			SetValueString($this->GetIDForIdent("BufferIN"), $dataio);
-			IPS_LogMessage("ReceiveData Homepilot Splitter", utf8_decode($data->Buffer)); //utf8_decode geht nur bei string
-		}
+		$this->SendDebug("Buffer In:",$dataio,0);
 		
-	 
 		// Hier werden die Daten verarbeitet
 	 
 		// Weiterleitung zu allen Gerät-/Device-Instanzen
@@ -146,12 +133,8 @@ class HomepilotSplitter extends IPSModule
 		$data = json_decode($JSONString);
 		$datasend = $data->Buffer;
 		$datasend = json_encode($datasend);
-		if($debug)
-		{
-			SetValueString($this->GetIDForIdent("CommandOut"), $datasend);
-			IPS_LogMessage("Homepilot Splitter Forward Data", $datasend);
-		}
-	 
+		$this->SendDebug("Forward Data:",$datasend,0);
+			 
 		// Hier würde man den Buffer im Normalfall verarbeiten
 		// z.B. CRC prüfen, in Einzelteile zerlegen
 		try

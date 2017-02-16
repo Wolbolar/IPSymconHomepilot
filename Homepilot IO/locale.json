@@ -22,7 +22,8 @@
 			"No valid IP adress.": "Keine gültige IP Adresse.",
 			"connection to the Homepilot lost.": "Verbindung zum Homepilot verloren.",
 			"field must not be empty.": "Felder dürfen nicht leer sein.",
-			"select category for import.": "Kategorie zum Import auswählen."			
+			"select category for import.": "Kategorie zum Import auswählen.",
+			"local testing":"Lokale Testumgebung"
 		}
 	}
 }

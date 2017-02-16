@@ -16,7 +16,6 @@ class HomepilotIO extends IPSModule
 		$this->RegisterPropertyInteger("ImportCategoryID", 0);
 		$this->RegisterPropertyString("username", "ipsymcon");
 		$this->RegisterPropertyString("password", "user@h0me");
-		$this->RegisterPropertyBoolean("Debug", true);
 		//local test
 		$this->RegisterPropertyBoolean("Test", false);
     }
@@ -43,17 +42,8 @@ class HomepilotIO extends IPSModule
 	
 	private function ValidateConfiguration()
 	{
-		$debug = $this->ReadPropertyBoolean('Debug');
 		$change = false;
-		
-		if($debug)
-		{
-			$this->RegisterVariableString("CommandOut", "CommandOut", "", 2);
-			$this->RegisterVariableString("IOIN", "IOIN", "", 3);
-			IPS_SetHidden($this->GetIDForIdent('CommandOut'), true);
-			IPS_SetHidden($this->GetIDForIdent('IOIN'), true);
-		}
-		
+				
 		$ip = $this->ReadPropertyString('Host');
 		$username = $this->ReadPropertyString('username');
 		$password = $this->ReadPropertyString('password');
@@ -76,7 +66,6 @@ class HomepilotIO extends IPSModule
 		elseif ($username !== "" && $password !== "" && (!filter_var($ip, FILTER_VALIDATE_IP) === false))
 			{
 				$config = $this->getConfig();
-				SetValue($this->GetIDForIdent("HomepilotConfig"), $config);
 				$change = true;	
 			}
 		
@@ -115,6 +104,7 @@ class HomepilotIO extends IPSModule
 		{
 			$url = $this->getURL("GetConfig");
 			$responsejson = file_get_contents($url);
+			$this->SendDebug("Homepilot Config abgelegt:",$responsejson,0);
 			SetValue($this->GetIDForIdent("HomepilotConfig"), $responsejson);
 		}	
 		else
@@ -138,6 +128,7 @@ class HomepilotIO extends IPSModule
 			$position = $device->position; //Position des Geräts
 			$deviceobjid = IPS_GetObjectIDByIdent($deviceID, $CategoryID);
 			$positionid = IPS_GetObjectIDByIdent("HomepilotPosition", $deviceobjid);
+			$this->SendDebug("Homepilot:","Status von Gerät ".IPS_GetName($deviceobjid)." (".$deviceobjid.") aktualisieren mit Wert: ".print_r($position,true),0);
 			SetValue($positionid, $position);
 		}	
 	}
@@ -172,8 +163,7 @@ class HomepilotIO extends IPSModule
 	//Installation Homepilot Instanzen
 	protected function SetupHomepilotInstance($HomepilotConfig)
 	{
-  		$debug = $this->ReadPropertyBoolean('Debug');
-		$CategoryID = $this->ReadPropertyInteger('ImportCategoryID');
+  		$CategoryID = $this->ReadPropertyInteger('ImportCategoryID');
 		
 		$response = json_decode($HomepilotConfig);
 		$command = $response->response;
@@ -232,8 +222,8 @@ class HomepilotIO extends IPSModule
 				IPS_SetProperty($InsID, "UID", $uid); //UID setzten.
 				IPS_ApplyChanges($InsID); //Neue Konfiguration übernehmen
 				IPS_Sleep(2000);
-				
-				IPS_LogMessage( "Homepilot" , "Homepilot Instanz Name: ".$InstName." erstellt" );
+				$this->SendDebug("Homepilot","Homepilot Instanz Name: ".$InstName." mit ObjektId (".$InsID.")  erstellt",0);
+				IPS_LogMessage( "Homepilot" , "Homepilot Instanz Name: ".$InstName." mit ObjektId (".$InsID.") erstellt" );
 				
 			}
 		
@@ -255,6 +245,7 @@ class HomepilotIO extends IPSModule
 			while($updatetimestamp <= $timestamp);
 		}
 		*/
+		$this->SendDebug("Homepilot","Status der ObjektId (".$positionID.") mit ".print_r($position,true)."  aktualisiert",0);
 		SetValue($positionID, $position);
 		return $InsID;
 	}
@@ -309,12 +300,8 @@ class HomepilotIO extends IPSModule
 		$ip = $this->ReadPropertyString('Host');
 		$url = "http://" . $ip . "/deviceajax.do";
 		$commandhomepilot = $this->GetPostFields($deviceID, $command, $position);
-		if($debug)
-		{
-			SetValue($this->GetIDForIdent("CommandOut"), $commandhomepilot);
-			IPS_LogMessage("Homepilot:", utf8_decode($commandhomepilot)." gesendet.");
-		}
-		
+		$this->SendDebug("Homepilot Command Out:",$commandhomepilot,0);
+				
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_URL,$url);
 		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");

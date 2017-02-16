@@ -13,7 +13,6 @@
 			$this->RegisterPropertyString("ProductName", "");
 			$this->RegisterPropertyString("Version", "");
 			$this->RegisterPropertyString("UID", "");
-			$this->RegisterPropertyBoolean("Debug", true);
 		}
 	
 		public function ApplyChanges()
@@ -71,11 +70,8 @@
 			$debug = $this->ReadPropertyBoolean('Debug');
 			$deviceID = $this->ReadPropertyInteger('DeviceID');
 			$payload = array("deviceID" => $deviceID, "command" => $command, "position" => $position);
-			if($debug)
-			{
-				IPS_LogMessage("Send data to Homepilot Splitter", utf8_decode(json_encode($payload))); //utf8_decode geht nur bei string
-			}
-						
+			$this->SendDebug("Send Data:",json_encode($payload),0);
+									
 			//an Splitter schicken
 			$result = $this->SendDataToParent(json_encode(Array("DataID" => "{D22DE634-29D5-460C-80B6-EEEB48545B2B}", "Buffer" => $payload))); //Homepilot Interface GUI
 			return $result;
@@ -90,8 +86,7 @@
 			if (($this->InstanceID) == $objectid)
 			{
 				//Parse and write values to our variables
-				$this->WriteValues($valuesjson);
-				//SetValue($this->GetIDForIdent("FlowRequest"), $valuesjson);
+				//$this->WriteValues($valuesjson);
 			}
 		}
 		
