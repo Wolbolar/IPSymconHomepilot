@@ -10,7 +10,7 @@ class HomepilotSplitter extends IPSModule
 		
 		//These lines are parsed on Symcon Startup or Instance creation
         //You cannot use variables here. Just static values.
-		$this->RequireParent("{D40B39AA-3966-41F1-A7E1-ABFF538DE0CE}", "Homepilot I/O"); //Homepilot I/O
+		$this->RequireParent("{D40B39AA-3966-41F1-A7E1-ABFF538DE0CE}"); //Homepilot I/O
 		
 
     }
